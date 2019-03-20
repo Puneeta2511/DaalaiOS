@@ -1,0 +1,22 @@
+<ion-view view-title="Deposit Money">
+	 <ion-nav-buttons side="right">
+        <a ng-click="myGoBack()" class="button button-icon icon ion-ios-arrow-back"></a>
+    </ion-nav-buttons>
+    <ion-content scroll="true">
+    	<div  class="greycolor razorpay" ng-if="coin == 0">
+    		<div id="form-container">
+                
+    			<label class=" depbox razorpay"  >Enter Amount</label>
+   			  <input type="number" class="form-control Entermmoney depbox" placeholder="e.g. 100" ng-model="deposits.amount" required>
+        </div>
+         <button class="button  razorpay button-positive" ng-click="pay()">
+            Pay with Razorpay
+          </button>
+      </div> 
+    </ion-content>
+    <ion-footer-bar class="bar-stable GREENCOLOR">
+        <div class="title GREENCOLOR" ng-if="onloading == 1" disabled>Loading...</div>
+        <div class="title GREENCOLOR" ng-if="isOffline">You are Offline</div>
+        <div class="title GREENCOLOR" ng-click="depositMoney()" ng-disabled="deposits_form.$invalid" ng-if="onloading == 0 && !isOffline && coin == 0">Send</div>
+    </ion-footer-bar>
+</ion-view>
